@@ -1,9 +1,10 @@
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 body {
     margin: 0;
+    background-color: whitesmoke;
 }
 
 main {
@@ -11,18 +12,42 @@ main {
     grid-area: main;
 }
 
+@keyframes leftAndShadow {
+    0% {
+        /* transform: translateX(100%); */
+        color: whitesmoke;
+        text-shadow: 0 0 0px whitesmoke;
+
+      }
+      100% {
+        /* transform: translateX(0); */
+        color: white;
+        text-shadow: 0 0 500px skyblue;
+    }
+  }
+  
+.huge {
+    font-size: 150px;
+    animation: 1.5s ease-in-out 0s 1 leftAndShadow;
+    color: white;
+    text-shadow: 0 0 100px skyblue;
+}
+
+
+
 p {
-    max-width: 1000px;
+    font-size: 20px;
+    max-width: 700px;
     margin: auto;
 }
 
 .container {
     display: grid;
-    grid-template-rows: max-content max-content auto max-content;
-    grid-template-areas: "header"
-                         "nav"
-                         "main"
-                         "footer";
+    grid-template-rows: max-content auto max-content;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "header nav"
+                         "main main"
+                         "footer footer";
     text-align: center;
     min-height: 100vh;
 }
@@ -37,19 +62,23 @@ p {
 }
 
 header {
-    font-size: 3em;
     font-weight: bold;
-    margin: 0;
-    width: 100%;
     text-align: center;
-    padding: 0.5em 0;
     grid-area: header;
+    width: 100%;
+
+}
+
+header a {
+    font-size: 2em;
 }
 
 nav {
     grid-area: nav;
     display: flex;
-    justify-content: left;
+    justify-content: right;
+    height: max-content;
+    font-weight: lighter;
 }
 
 ul {
@@ -63,23 +92,24 @@ li {
     float: left;
 }
 
-.current {
-    background-color: white;
+
+li a, header a {
+    padding: 25px 25px;
+    margin: 0;
+    display: inline-block;
+    text-decoration: none;
     color: black;
 }
 
-li a {
-    padding: 10px 20px;
-    display: inline-block;
-    text-decoration: none;
-    color: white;
+
+header a:hover{
+    color: lightskyblue;  
 }
 
 li a:hover {
-    background-color: lightskyblue;
-    color: black;
+    color: lightskyblue;  
+    text-shadow: 0 0 30px lightskyblue;
 }
-
 .ranking {
     grid-area: main;
     display: grid;
@@ -94,6 +124,7 @@ li a:hover {
     text-align: center;
     font-size: 2em;
     margin: 10px 0;
+    padding: 10px;
     border: 1px black solid;
 }
 
@@ -126,6 +157,7 @@ table {
 
 #submit {
     margin: 10px;
+    font-size: 1em;
 }
 
 footer {
