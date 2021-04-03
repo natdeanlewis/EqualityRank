@@ -1,1 +1,1 @@
-# EqualityRank
+# EqualityRanker
