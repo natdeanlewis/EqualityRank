@@ -1,3 +1,5 @@
+/* General styles */
+
 * {
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -10,36 +12,25 @@ body {
 main {
     margin: 20px;
     grid-area: main;
+    margin-bottom: 100px;
 }
-
-@keyframes leftAndShadow {
-    0% {
-        /* transform: translateX(100%); */
-        color: whitesmoke;
-        text-shadow: 0 0 0px whitesmoke;
-
-      }
-      100% {
-        /* transform: translateX(0); */
-        color: white;
-        text-shadow: 0 0 500px skyblue;
-    }
-  }
-  
-.huge {
-    font-size: 150px;
-    animation: 1.5s ease-in-out 0s 1 leftAndShadow;
-    color: white;
-    text-shadow: 0 0 100px skyblue;
-}
-
-
 
 p {
     font-size: 20px;
     max-width: 700px;
     margin: auto;
 }
+
+.blue {
+    background-color: lightskyblue;
+}
+
+.black {
+    background-color: black;
+    color: grey;
+}
+
+/* Common elements */
 
 .container {
     display: grid;
@@ -50,15 +41,6 @@ p {
                          "footer footer";
     text-align: center;
     min-height: 100vh;
-}
-
-.blue {
-    background-color: lightskyblue;
-}
-
-.black {
-    background-color: black;
-    color: grey;
 }
 
 header {
@@ -76,7 +58,7 @@ header a {
 nav {
     grid-area: nav;
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     height: max-content;
     font-weight: lighter;
 }
@@ -110,6 +92,39 @@ li a:hover {
     color: lightskyblue;  
     text-shadow: 0 0 30px lightskyblue;
 }
+
+footer {
+    position: relative;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 0;
+    grid-area: footer;
+}
+
+/* Welcome animation */
+
+@keyframes shadow {
+    0% {
+        color: whitesmoke;
+        text-shadow: 0 0 0px whitesmoke;
+
+      }
+      100% {
+        color: white;
+        text-shadow: 0 0 1000px lightskyblue, 0 0 200px lightskyblue;
+    }
+}
+
+.huge {
+    font-size: 150px;
+    animation: 4s ease-in-out 0s 1 shadow;
+    color: white;
+    text-shadow: 0 0 1000px lightskyblue, 0 0 200px lightskyblue;
+}
+
+/* Ranking page */
+
 .ranking {
     grid-area: main;
     display: grid;
@@ -125,7 +140,11 @@ li a:hover {
     font-size: 2em;
     margin: 10px 0;
     padding: 10px;
-    border: 1px black solid;
+    border: 1px lightskyblue solid;
+}
+
+#search:focus {
+    outline: 2px solid lightskyblue;
 }
 
 th {
@@ -144,6 +163,8 @@ table {
     grid-area: results;
 }
 
+/* Rating page */
+
 #login {
     max-width: 300px;
     margin: auto;
@@ -153,18 +174,31 @@ table {
     width: 300px;
     font-size: 1.2em;  
     margin-top: 10px;
+    padding: 3px;
+}
+
+.field:focus {
+    border: 1px solid lightskyblue;
+    outline: none;
 }
 
 #submit {
     margin: 10px;
     font-size: 1em;
+    padding: 5px;
+    background-color: whitesmoke;
+    border: none;
+    font-weight: lighter;
 }
 
-footer {
-    position: relative;
-    text-align: center;
-    bottom: 0;
-    width: 100%;
-    padding: 30px 0;
-    grid-area: footer;
+#submit:hover {
+    color: lightskyblue;
+}
+
+#submit:active {
+    color: white;
+}
+
+#submit:focus {
+    outline: 1px solid lightskyblue;
 }
