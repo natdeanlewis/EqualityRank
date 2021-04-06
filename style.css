@@ -61,7 +61,7 @@ header a {
 }
 
 header a:hover {
-    color: lightskyblue;
+    color: whitesmoke;
 }
 
 header a:after{
@@ -71,6 +71,35 @@ header a:after{
 
 header a:hover:after {
     color: black;
+}
+
+header #span1:before {
+    content: attr(data-text1);
+    transition: transform 0.3s ease-out;
+}
+header #span2:before {
+    content: attr(data-text2);
+    transition: transform 0.3s ease-out 0.1s;
+}
+header #span3:before {
+    content: attr(data-text3);
+    transition: transform 0.3s ease-out 0.2s;
+}
+
+header #span1:before, header #span2:before, header #span3:before {
+    position: absolute;
+    transform: translateX(-0.6em);
+    color: whitesmoke;
+    z-index: -1;
+}
+
+header a:hover #span1:before, header a:hover #span2:before, header a:hover #span3:before {
+    color: lightskyblue;
+    z-index: 1;
+    transform: translateX(0);
+}
+header a:hover:before {
+    transform: translateX(0);
 }
 
 nav {
