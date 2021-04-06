@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <!-- rating page -->
+
 <html lang="en">
 <head>
   <title>Equality Adherence Rankings</title>
   <link rel = "stylesheet", href = "style.css">
+  <script src="script.js"></script>
 </head>
 
 <body>
@@ -23,7 +25,7 @@
             <br>
             <p>Please use the login details given to you by your employer to enter.</p>
             <br>
-            <form id="login">
+            <form id="login" name="login" action="./rate.html" onsubmit="return validateForm()" autocomplete="off">
                 <input type="text" name="username" placeholder="Username" class="field">
                 <input type="password" name="password" placeholder="Password" class="field">
                 <input type="submit" value="Log in" id="submit">
@@ -33,6 +35,5 @@
             Equality Adherence Rankings 2021
         </footer>
     </div>
-    
 </body>
 </html>

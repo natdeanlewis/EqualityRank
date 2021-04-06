@@ -13,6 +13,7 @@ main {
     margin: 20px;
     grid-area: main;
     margin-bottom: 100px;
+    text-align: center;
 }
 
 p {
@@ -39,58 +40,52 @@ p {
     grid-template-areas: "header nav"
                          "main main"
                          "footer footer";
-    text-align: center;
+    
     min-height: 100vh;
+    
 }
 
 header {
-    font-weight: bold;
     text-align: center;
     grid-area: header;
     width: 100%;
-
 }
 
 header a {
-    font-size: 2em;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 2em;    
+    color: black;
+    display: block;
+    margin: 1em 0;
+}
+
+header a:hover {
+    color: lightskyblue;
+}
+
+header a:after{
+    content: ".";
+    color: lightskyblue;
+}
+
+header a:hover:after {
+    color: black;
 }
 
 nav {
     grid-area: nav;
-    display: flex;
-    justify-content: flex-end;
     height: max-content;
     font-weight: lighter;
+    width: 100%;
 }
 
 ul {
+    display: flex;
+    justify-content:flex-end;
     list-style-type: none;
     padding: 0;
     margin: 0;
-}
-
-li {
-    display: inline;
-    float: left;
-}
-
-
-li a, header a {
-    padding: 25px 25px;
-    margin: 0;
-    display: inline-block;
-    text-decoration: none;
-    color: black;
-}
-
-
-header a:hover{
-    color: lightskyblue;  
-}
-
-li a:hover {
-    color: lightskyblue;  
-    text-shadow: 0 0 30px lightskyblue;
 }
 
 footer {
@@ -101,6 +96,59 @@ footer {
     padding: 30px 0;
     grid-area: footer;
 }
+
+/* Navbar + animations */
+
+li {
+    display: inline;
+    float: left;
+}
+
+
+li a {
+    padding: 0px;
+    margin: 25px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+
+li a:hover {
+    color: lightskyblue;  
+    text-shadow: 0 0 30px lightskyblue;
+
+}
+
+li a {
+    position: relative;
+}
+
+li a:before, li a:after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -1px;
+    background-color: black;
+    visibility: visible;
+    transition: all 0.2s ease-in-out;
+    z-index: -1;
+  }
+
+li a:before {
+    left: 0;
+}
+
+li a:after {
+    right: 0;
+}
+
+li a:hover:before, li a:hover:after {
+    visibility: visible;
+    width: 100%;
+    background-color: lightskyblue;
+}
+
 
 /* Welcome animation */
 
